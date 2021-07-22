@@ -72,7 +72,7 @@ export default function MoreViews(){
                         Peso: peso.kg <br/>
                         Comprimento: altura.m <br/>
                         Libra: libra.lbs<br/>
-                        <a href='#'>Ver Este</a>
+                        <a href='https://woodwolf.com'>Ver Este</a>
                     </p>
                 </li>
          
@@ -86,7 +86,7 @@ export default function MoreViews(){
                         Peso: peso.kg <br/>
                         Comprimento: altura.m <br/>
                         Libra: libra.lbs<br/>
-                            <a href='#'>Ver Este</a>
+                            <a href='https://woodwolf.com'>Ver Este</a>
                     </p>
                 </li>
          
@@ -100,7 +100,7 @@ export default function MoreViews(){
                         Peso: peso.kg <br/>
                         Comprimento: altura.m <br/>
                         Libra: libra.lbs<br/>
-                        <a href='#'>Ver Este</a>
+                        <a href='https://woodwolf.com'>Ver Este</a>
                     </p>
                 </li>
             </ul>
