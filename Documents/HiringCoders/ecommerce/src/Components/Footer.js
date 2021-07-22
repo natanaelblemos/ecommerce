@@ -12,8 +12,9 @@ const Footer = styled.footer`
 export default function FooterSection(){
 
     return(
-
-        <p>Copyright @ Todos os direitos WoodWofArchery 2021</p>
+        <Footer>
+            <p>Copyright @ Todos os direitos WoodWofArchery 2021</p>
+        </Footer>
 
     )
 
