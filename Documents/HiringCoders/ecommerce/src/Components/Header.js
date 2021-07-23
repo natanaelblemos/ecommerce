@@ -1,12 +1,14 @@
 import styled from "styled-components";
 import logo from '../img/logo.png';
 import menu from '../img/menu.png';
-import face from '../img/face.png';
-import insta from '../img/insta.png';
-import wpp from '../img/wpp.png';
+import face from '../img/face2.png';
+import insta from '../img/insta2.png';
+import wpp from '../img/wpp2.png';
+import login from '../img/login.png';
+import { Link } from "react-router-dom";
 
 
-const HeaderSection = styled.header`
+export const HeaderSection = styled.header`
     width:100%;
     height:80px;
     background-color:#FFF;
@@ -79,7 +81,7 @@ const HeaderSection = styled.header`
       }
 `;
 
-const HeaderLI = styled.li`
+export const HeaderLI = styled.li`
     width:fit-content;
     height:40px;
     font-size:18px;
@@ -111,7 +113,7 @@ const HeaderLI = styled.li`
     }
 `;
 
-const Menu = styled.div`
+export const Menu = styled.div`
 display:none;
 
 @media screen and (max-width: 1100px){
@@ -135,10 +137,10 @@ export default function HeaderSec(){
             </div>
 
             <ul id='menu'>
-                <a href ='/' ><HeaderLI>Home</HeaderLI></a>
-                <a href ='/eventos' ><HeaderLI>Eventos</HeaderLI></a>
-                <HeaderLI>Produtos</HeaderLI>
-                <HeaderLI>Aulas</HeaderLI>
+                <Link to='/' ><HeaderLI>Home</HeaderLI></Link>
+                <Link to ='/eventos' ><HeaderLI>Eventos</HeaderLI></Link>
+                <Link to ='/produtos' ><HeaderLI>Produtos</HeaderLI></Link>
+                <HeaderLI>Aulas</HeaderLI> 
                 <HeaderLI>Contato</HeaderLI>
             </ul>
 
@@ -158,6 +160,11 @@ export default function HeaderSec(){
                         <img src={wpp} alt='WhatsApp' />
                     </HeaderLI>
                 </a>
+                <Link to='/login'>
+                    <HeaderLI>
+                        <img src={login} alt='WhatsApp' />
+                    </HeaderLI>
+                </Link>
             </ul>
 
             <Menu img={menu} />
