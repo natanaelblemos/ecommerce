@@ -15,7 +15,7 @@ export default function Admin(){
     const [preco, setPreco] = useState('');
     const [quantidade, setQuantidade] = useState('');
 
-    const produtoStorage = [];
+    //const produtoStorage = [];
     
     
    // localStorage.setItem('produtos','') 
