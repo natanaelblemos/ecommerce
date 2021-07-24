@@ -5,6 +5,7 @@ import Eventos from './Pages/Eventos';
 import Login from './Pages/Login';
 import Admin from './Pages/Admin';
 import ListaProdutos from './Pages/ListaProdutos';
+import CadastroCliente from './Pages/Cadastro';
 
 
 export default function Routes(){
@@ -16,6 +17,7 @@ export default function Routes(){
                 <Route path='/login' component={Login}/>
                 <Route path='/admin' component={Admin}/>
                 <Route path='/produtos' component={ListaProdutos}/>
+                <Route path='/cadastro' component={CadastroCliente}/>
             </Switch>
         </BrowserRouter>
     )

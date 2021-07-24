@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import item1 from '../img/item1.jpg';
 import item2 from '../img/item2.jpg';
@@ -9,7 +10,9 @@ const Moreviews = styled.section`
     height:fit-content;
     min-height:250px;
     background-color:#333;
-
+    margin:0px;
+    padding:0px;
+    
     h1{
         color:#FFF;
         text-align:center;
@@ -18,16 +21,18 @@ const Moreviews = styled.section`
     }
     ul{
         list-style-type:none;
-        width:fit-content;
+        width:100%;
         height:auto;
         display:flex;
         flex-wrap:wrap;
         justify-content:space-around;
         align-items: center;
         align-content: space-around;
+        padding:0px;
     }
     ul li{
-        width:calc(100%/4);
+        min-width:350px;
+        width:350px;
         height:fit-content;
         color:#FFF;
         display:grid;
@@ -51,6 +56,13 @@ const Moreviews = styled.section`
         font-family:arial;
         font-size:15px;
     }
+    a{
+        text-decoration:none;
+        font-family:Arial;
+        font-size:15px;
+        font-weight:800;
+        color:lightblue;
+    }
 `;
 
 
@@ -72,7 +84,7 @@ export default function MoreViews(){
                         Peso: peso.kg <br/>
                         Comprimento: altura.m <br/>
                         Libra: libra.lbs<br/>
-                        <a href='https://woodwolf.com'>Ver Este</a>
+                        <Link to='https://woodwolf.com'>Ver Este</Link>
                     </p>
                 </li>
          
@@ -86,7 +98,7 @@ export default function MoreViews(){
                         Peso: peso.kg <br/>
                         Comprimento: altura.m <br/>
                         Libra: libra.lbs<br/>
-                            <a href='https://woodwolf.com'>Ver Este</a>
+                            <Link to='https://woodwolf.com'>Ver Este</Link>
                     </p>
                 </li>
          
@@ -100,7 +112,7 @@ export default function MoreViews(){
                         Peso: peso.kg <br/>
                         Comprimento: altura.m <br/>
                         Libra: libra.lbs<br/>
-                        <a href='https://woodwolf.com'>Ver Este</a>
+                        <Link to='https://woodwolf.com'>Ver Este</Link>
                     </p>
                 </li>
             </ul>

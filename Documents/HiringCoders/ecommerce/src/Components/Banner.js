@@ -1,10 +1,11 @@
 import styled from "styled-components";
-import ban1 from '../img/banner2.jpg';
+
 
 const Banner = styled.section`
     width:100%;
     max-height:700px;
     height:fit-content;
+    margin-top:80px;
 
     img{
         width:100%;
@@ -43,9 +44,40 @@ const Banner = styled.section`
         font-size:15px;
         color:#FFF;
     }
+    @media screen and (max-width:1200px){
+        div{
+            position:absolute;
+            float:left;
+            left:50px;
+            top:150px;
+            width:fit-content;
+            height:fit-content;
+            padding:10px;
+            text-align:center;
+        }
+        div h1{
+            font-family:Calibri;
+            font-size:30px;
+            color:#FFF;
+            line-height:0;
+        }
+        div h3{
+            font-family:Calibri;
+            font-size:15px;
+            color:#FFF;
+        }
+        div p{
+            font-family:Arial;
+            font-size:12px;
+            color:#FFF;
+            width:60%;
+            margin-left:auto;
+            margin-right:auto;
+        } 
+    }
 `;
 
-export default function Ban(){
+export default function Ban(props){
     return (
          <Banner>
              <div>
@@ -59,7 +91,7 @@ export default function Ban(){
              </div>
              <ul>
                  <li>
-                     <img src={ban1} alt='Banner da WoodWolf'/>
+                     <img src={props.img} alt='Banner da WoodWolf'/>
                  </li>
              </ul>
          </Banner>

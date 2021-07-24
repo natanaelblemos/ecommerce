@@ -20,7 +20,7 @@ export default function Admin(){
     
    // localStorage.setItem('produtos','') 
     let pegaProdStorageJSON =[];
-    console.log(localStorage.getItem('produtos'))
+    //console.log(localStorage.getItem('produtos'))
     return (
     <>
         <HeaderSection>
@@ -37,6 +37,9 @@ export default function Admin(){
         </HeaderSection>
         <br />
         <br />
+        <br />
+        <br />
+        <br />
         <Form method='_POST' onSubmit={function handleCadastro(e){
             e.preventDefault();
 
@@ -44,9 +47,10 @@ export default function Admin(){
            
             //produtoStorage.push(produtos);
 
-           let pegaProdutosStorage = localStorage.getItem('produtos')
+           let pegaProdutosStorage = [] //localStorage.getItem('produtos')
            
-           if(pegaProdutosStorage.length > 0){
+           if(localStorage.getItem('produtos')){
+                pegaProdutosStorage = localStorage.getItem('produtos')
                 pegaProdStorageJSON = JSON.parse(pegaProdutosStorage)
                 pegaProdStorageJSON.push(produtos)
             }else{
@@ -57,12 +61,20 @@ export default function Admin(){
 
            localStorage.setItem('produtos',pegaProdutosStorage)
 
-           const listaProdutos = localStorage.getItem('produtos')
+            alert('Dados cadastrados com sucesso!');
 
-           const lista = JSON.parse(listaProdutos)
+            setNome('');
+            setDescricao('');
+            setImagem('');
+            setPreco(0);
+            setQuantidade(0);
+
+           //const listaProdutos = localStorage.getItem('produtos')
+
+           //const lista = JSON.parse(listaProdutos)
 
           // console.log(localStorage.getItem('produtos'));
-            console.log(lista);
+            //console.log(lista);
 
         }}>
             <label>Nome do Produto</label>

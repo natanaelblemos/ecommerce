@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 const Pickeventos = styled.li`
@@ -8,6 +9,7 @@ const Pickeventos = styled.li`
     diplay:flex;
     flex-wrap:wrap;
     text-align:center;
+    z-index:5000;
 
     h1, h2{
         width:fit-content;
@@ -51,6 +53,8 @@ const Ul = styled.ul`
     flex-wrap:wrap;
     margin:0;
     padding:0;
+    padding-top:20px;
+    padding-bottom:20px;
     list-style-type: none;
 `;
 
@@ -87,7 +91,7 @@ function PickEventosLi(propriedades){
                 <p className='pickEventP'>
                     {propriedades.texto}
                 </p>
-                <a href={propriedades.link}>Leia Mais</a>
+                <Link to={propriedades.link}>Leia Mais</Link>
         </Pickeventos>
     )
 }

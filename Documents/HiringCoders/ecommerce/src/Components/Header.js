@@ -6,17 +6,24 @@ import insta from '../img/insta2.png';
 import wpp from '../img/wpp2.png';
 import login from '../img/login.png';
 import { Link } from "react-router-dom";
+import fechaMeunu from '../img/fechaMeunu.png'
+
 
 
 export const HeaderSection = styled.header`
     width:100%;
     height:80px;
+    position:fixed;
+    top:0px;
     background-color:#FFF;
     display:flex;
     justify-content: space-between;
     align-items: center;
     align-content: space-between;
     box-shadow:1px 1px 2px 1px #333;
+    z-index:9999;
+
+
     #logo{
         width:fit-content;
         height:100%;
@@ -65,9 +72,12 @@ export const HeaderSection = styled.header`
         display:flex;
         flex-direction:column;
       }
+      a{
+        text-decoration:none;
+      }
       @media screen and (max-width: 1100px){
         #RSociais li img{
-          height:25px;
+          height:35px;
           margin:0px;
           padding:0px;
         } 
@@ -78,17 +88,21 @@ export const HeaderSection = styled.header`
         #menu{
           display:none;
         }
+        .LoginGrande{
+          display:none;
+        }
       }
+
 `;
 
 export const HeaderLI = styled.li`
     width:fit-content;
     height:40px;
-    font-size:18px;
+    font-size:15px;
     color:#444;
     border:none;
-    padding-left:30px;
-    padding-right:30px;
+    padding-left:10px;
+    padding-right:10px;
     font-family:Sans-Serif;
     line-height:40px;
 
@@ -103,7 +117,7 @@ export const HeaderLI = styled.li`
     @media screen and (max-width: 1100px){
         width:fit-content;
         height:40px;
-        font-size:12px;
+        font-size:15px;
         color:#444;
         border:none;
         padding-left:10px;
@@ -118,6 +132,7 @@ display:none;
 
 @media screen and (max-width: 1100px){
   display:block;
+  min-width:35px;
   width:35px;
   height:35px;
   background-image:url(${props => props.img});
@@ -126,15 +141,71 @@ display:none;
   background-size:100%;
   background-repeat:no-repeat;
   border:solid 0.3px;
+  margin-right:30px;
+}
+`;
+const SpanMenu = styled.nav`
+display:none;
+
+@media screen and (max-width: 1100px){
+  display:none;
+  width:0px;
+  height:100vh;
+  background-color:#FFF;
+  position:fixed;
+  float:right;
+  right:0px;
+  top:80px;
+  z-index:99999;
+  box-shadow:-1px 1px 2px 1px #333;
+
+  ul{
+    list-style-type:none;
+    display:flex;
+    flex-direction:column;
+    justify-content: space-between;
+    align-items: center;
+    align-content: space-between;
+    width:100%;
+    color:#000;
+  }
+  li{
+    width:auto;
+    text-align:center;
+    font-size:25px;
+    height:70px;
+  }
+  a{
+    text-decoration:none;
+  }
 }
 `;
 
 export default function HeaderSec(){
+
+    function handleMenu(e){
+
+      if(document.getElementById('spanMenu').style.width === '0px'){
+ 
+          document.getElementById('spanMenu').style.display = 'block';
+          document.getElementById('spanMenu').style.width = '100vw';
+          e.target.style.backgroundImage = `url(${fechaMeunu})`;
+
+      }else{
+        document.getElementById('spanMenu').style.display = 'none';
+        document.getElementById('spanMenu').style.width = '0';
+        e.target.style.backgroundImage = `url(${menu})`;
+      }
+    }
+
     return(
+      <>
         <HeaderSection>
-            <div id='logo'>
+           <Link to='/'> 
+              <div id='logo'>
                 <img src={logo} alt='WoodWolf'/>
-            </div>
+              </div>
+            </Link>
 
             <ul id='menu'>
                 <Link to='/' ><HeaderLI>Home</HeaderLI></Link>
@@ -145,31 +216,46 @@ export default function HeaderSec(){
             </ul>
 
             <ul id='RSociais'>
-                <a href='https://fb.com/woodwolfarchery'>
+                <Link to='https://fb.com/woodwolfarchery'>
                     <HeaderLI>
                         <img src={face} alt='Facebook' />
                     </HeaderLI>
-                </a>
-                <a href='https://instagram.com/woodwolfarchery'>
+                </Link>
+                <Link to='https://instagram.com/woodwolfarchery'>
                     <HeaderLI>
                         <img src={insta} alt='instagram' />
                     </HeaderLI>
-                </a>
-                <a href='https://fb.com/woodwolfarchery'>
+                </Link>
+                <Link to='https://fb.com/woodwolfarchery'>
                     <HeaderLI>
                         <img src={wpp} alt='WhatsApp' />
                     </HeaderLI>
-                </a>
-                <Link to='/login'>
+                </Link>
+                <Link to='/login' className='LoginGrande'>
                     <HeaderLI>
                         <img src={login} alt='WhatsApp' />
                     </HeaderLI>
                 </Link>
             </ul>
 
-            <Menu img={menu} />
+            <Menu img={menu}  onClick={handleMenu}/>
 
         </HeaderSection>
+            <SpanMenu id='spanMenu'>
+              <ul>
+                  <Link to='/' ><HeaderLI>Home</HeaderLI></Link>
+                  <Link to ='/eventos' ><HeaderLI>Eventos</HeaderLI></Link>
+                  <Link to ='/produtos' ><HeaderLI>Produtos</HeaderLI></Link>
+                  <HeaderLI>Aulas</HeaderLI> 
+                  <HeaderLI>Contato</HeaderLI>
+                  <Link to='/login'>
+                    <HeaderLI>
+                        <img src={login} alt='WhatsApp' />
+                    </HeaderLI>
+                </Link>
+              </ul>
+            </SpanMenu>
+        </>
     )
 
 }
