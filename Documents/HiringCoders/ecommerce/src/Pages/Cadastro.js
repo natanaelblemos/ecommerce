@@ -1,9 +1,6 @@
 import React,{ useState } from 'react';
-import { Link } from 'react-router-dom';
-//import styled from 'styled-components';
-import {HeaderSection, HeaderLI, Menu} from '../Components/Header';
-import logo from '../img/logo.png';
-import menu from '../img/menu.png';
+import { useHistory } from 'react-router-dom';
+import HeaderSec from '../Components/Header';
 import { Form } from './Login';
 
 export default function CadastroCliente(){
@@ -12,35 +9,27 @@ export default function CadastroCliente(){
     const [email, setEmail] = useState('');
     const [login, setLogin] = useState('');
     const [senha, setSenha] = useState('');
+    const History = useHistory();
 
     //const produtoStorage = [];
-    
+    function MudaPagina(){
+        History.push('/login')
+    }
     
    // localStorage.setItem('produtos','') 
     let pegaCliStorageJSON =[];
     //console.log(localStorage.getItem('produtos'))
     return (
     <>
-        <HeaderSection>
-            <div id='logo'>
-                <img src={logo} alt='WoodWolf'/>
-            </div>
-            <Link to='/'>
-                <HeaderLI>
-                    Voltar
-                </HeaderLI>
-            </Link>
-
-            <Menu img={menu}/>
-        </HeaderSection>
+        <HeaderSec />
         <br />
         <br />
         <br />
         <br />
         <br />
-        <Form method='_POST' onSubmit={function handleCadastro(e){
+        <Form method='_POST' onSubmit={function HandleCadastro(e){
             e.preventDefault();
-
+            
             let cliente = {"nome":nome,"email":email,"login": login,"senha":senha}
            
             //produtoStorage.push(produtos);
@@ -65,6 +54,8 @@ export default function CadastroCliente(){
             setEmail('');
             setLogin('');
             setSenha('');
+
+            MudaPagina()
 
         }}>
             <label>Nome</label>

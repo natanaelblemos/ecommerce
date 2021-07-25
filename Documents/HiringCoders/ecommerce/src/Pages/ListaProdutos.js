@@ -11,8 +11,7 @@ import menu from '../img/menu.png';
 
 const Ul = styled.ul`
 
-    width:fit-content;
-    max-width:85%;
+    width:85%;
     height:auto;
     display:flex;
     flex-wrap:wrap;
@@ -27,7 +26,6 @@ const Ul = styled.ul`
         margin:0;
         padding:0;
     }
-
         
     h1{
         display:block;
@@ -122,8 +120,8 @@ const Ul = styled.ul`
         margin-left:auto;
         margin-right:auto;
     }
-    @media screen and (max-width:880px){
-        width:calc(100% - 150px);
+    @media screen and (max-width:720px){
+        width:100% ;
     }
 
 `;
@@ -133,7 +131,7 @@ const MenuNav = styled.nav`
     height:auto;
     padding:10px;
     border:solid 0.3px #999;
-    position:relative;
+    position:absolute;
     float:left;
     margin:10px;
 
@@ -178,8 +176,8 @@ const MenuNav = styled.nav`
         display:none;
     }
 
-    @media screen and (max-width:880px){
-        display:;
+    @media screen and (max-width:720px){
+        display:none;
         position:absolute;
         min-width:100px;
         background-color:#FFF;
@@ -192,9 +190,9 @@ const AbreNav = styled.div`
     width:40px;
     height:40px;
     background-image:url(${menu});
-    position:absolute;
+    position:relative;
     left:0px;
-    top:420px;
+    top:100px;
     background-attchament:cover;
     background-size:100%;
     background-position:center;
@@ -202,6 +200,12 @@ const AbreNav = styled.div`
     border:solid 0.3px #888;
     border-radius:0px 10px 10px 0;
     display:none;
+    background-color:#FFF;
+    z-index:9999;
+
+    @media screen and (max-width:720px){
+        display:block;
+    }
 `;
 
 export default function ListaProdutos(){
@@ -234,7 +238,7 @@ export default function ListaProdutos(){
 
             <Ban img={ban2}/>
 
-            <MenuNav>
+            <MenuNav id='menuNav'>
                 <ul>
                     <li className='liFirst' onClick={handleLiNav}>
                         <p>Arcos</p>
@@ -265,7 +269,20 @@ export default function ListaProdutos(){
                 </ul>
             </MenuNav>
 
-            <AbreNav id='abreNav' />
+            <AbreNav id='abreNav' onClick={() => {
+                    const menu = document.getElementById("menuNav")
+                    if(menu.style.display === 'block'){
+                        menu.style.display = 'none'
+                        menu.style.postion = 'absolute'
+                    }else{
+                        menu.style.display = 'block'
+                        menu.style.postion = 'fixed'
+                        menu.style.top = `${document.body.offsetHeight+170}px`
+                    }
+
+                    console.log( document.body.offsetHeight+150)
+                }
+            }/>
             
 
             <Ul>

@@ -1,9 +1,5 @@
 import React,{ useState } from 'react';
-import { Link } from 'react-router-dom';
-//import styled from 'styled-components';
-import {HeaderSection, HeaderLI, Menu} from '../Components/Header';
-import logo from '../img/logo.png';
-import menu from '../img/menu.png';
+import HeaderSec from '../Components/Header';
 import { Form } from './Login';
 
 
@@ -23,18 +19,7 @@ export default function Admin(){
     //console.log(localStorage.getItem('produtos'))
     return (
     <>
-        <HeaderSection>
-            <div id='logo'>
-                <img src={logo} alt='WoodWolf'/>
-            </div>
-            <Link to='/'>
-                <HeaderLI>
-                    Voltar
-                </HeaderLI>
-            </Link>
-
-            <Menu img={menu}/>
-        </HeaderSection>
+        <HeaderSec />
         <br />
         <br />
         <br />

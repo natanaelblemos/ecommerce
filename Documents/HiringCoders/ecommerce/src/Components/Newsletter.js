@@ -3,23 +3,27 @@ import styled from "styled-components";
 
 const Newsletter = styled.div`
     width:100%;
-    height:80px;
+    height:fit-content;
     background-color:#e5e5e5;
-    padding:0px;
+    padding-top:10px;
+    padding-bottom:10px;
     margin:0px;
     display:flex;
     flex-direction:row;
     flex-wrap:wrap;
     align-items:center;
     justify-content:center;
+
     label{
-        margin-right:10px;
+        margin:10px;
         font-family: Arial;
         font-weight:500;
         color:#333;
         font-size:18px;
+        text-align:center;
+
     }
-    input[type=text]{
+    input[type=email]{
         border:none;
         border-radius:15px;
         min-width:250px;
@@ -28,6 +32,7 @@ const Newsletter = styled.div`
         font-size:20px;
         font-family:Arial;
         padding-left:10px;
+        margin:10px 0px 10px 0px;
     }
     button{
         border:none;

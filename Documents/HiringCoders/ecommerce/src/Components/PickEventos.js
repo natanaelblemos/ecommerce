@@ -1,90 +1,34 @@
 import { Link } from "react-router-dom";
-import styled from "styled-components";
-
-const Pickeventos = styled.li`
-    width:calc(100%/3);
-    height:200px;
-    background-color:#FFF;
-    min-width:350px;
-    diplay:flex;
-    flex-wrap:wrap;
-    text-align:center;
-    z-index:5000;
-
-    h1, h2{
-        width:fit-content;
-        padding:5px;
-        color:red;
-        font-family: Arial;
-        font-style:italic;
-        font-size:52px;
-        display:inline;
-    }
-    h2{
-        font-size:30px;
-        font-style:normal;
-    }
-    p{
-        width:80%;
-        margin-left:10%;
-        text-align:center;
-        font-family:calibri;
-        font-size:20;
-        color:#333;
-        font-weight:bold;
-        max-width: 250ch;
-        overflow-y: hidden;
-        text-overflow: ellipsis;
-        white-space: wrap;
-    }
-    a{
-        font-family:calibri;
-        font-weight:800;
-    }
-`;
-
-const Ul = styled.ul`
-    width:100%;
-    min-height:200px;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    align-content: space-between;
-    flex-wrap:wrap;
-    margin:0;
-    padding:0;
-    padding-top:20px;
-    padding-bottom:20px;
-    list-style-type: none;
-`;
+import {Pickeventos, Ul} from "../Styles/eventsStyle";
 
 
 export default function  PickEventos(){
 
 const liEventos = [{
-    data:'15'
-    ,titulo:'Aulão de Arquearia'
-    ,texto:'Um texto qualquer que vai ser apagado quando alcançar mais do que 250 caracteres, e como não fiquei contando enquanto digitava vou continuar digitando mais um pouco de palavras sem sentido'
-    ,link:'https://fb.com/woodwolfarchery'
+    data:'25'
+    ,titulo:'Valhalla Night - Invasão Medieval e Yggdrasil'
+    ,texto:"Hail, pessoALL! EVENTO GRATUITO ! <br /> Dia 25 de janeiro haverá um evento especialíssimo! Será o Valhalla Night! UM LUAU na praia de Ipanema!<br />Junção de 3 eventos em um só para aproveitarmos um lual bacana com picnic, música, atividades e muita diversão!<br />Valhalla Day Invasão Medieval RJ Encontro Viking Medieval RJ Yggdrasil - Estudos Nórdicos RJ ====================================<br /> O objetivo desses encontros é reunir pessoas com interesse na Cultura Nórdica: história, tradições, culinária, artesanato, lutas, etc. Vamos passar uma noite de Sábado mais uma vez juntos nos divertindo e compartilhando nossas pesquisas e visões sobre a Era Viking e Cultura Escandinava. Cada encontro tem um tema de discussão, picnic, jogos medievais, exposição de artesanato, treino de combate viking para todas as idades e luta entre os atletas mais experientes."
+    ,link:'https://fb.me/e/1A6N9JH8X'
 },{
     data:'15'
-    ,titulo:'Aulão de Arquearia'
-    ,texto:'Um texto qualquer que vai ser apagado quando alcançar mais do que 250 caracteres, e como não fiquei contando enquanto digitava vou continuar digitando mais um pouco de palavras sem sentido'
-    ,link:'https://fb.com/woodwolfarchery'
+    ,titulo:'III Invasão Medieval no Game of Boards'
+    ,texto:'Dia 15/12 vamos invadir a Game of Boards para conquistar os corações dos participantes com uma volta no tempo, para experimentarmos a magia, alegria e as demais especialidades da época.'
+    ,link:'https://fb.me/e/19ZdNiFeJ'
 },{
     data:'15'
-    ,titulo:'Aulão de Arquearia'
-    ,texto:'Um texto qualquer que vai ser apagado quando alcançar mais do que 250 caracteres, e como não fiquei contando enquanto digitava vou continuar digitando mais um pouco de palavras sem sentido'
-    ,link:'https://fb.com/woodwolfarchery'
+    ,titulo:'IX Feira Medieval Carioca - Gratuita - A Maior do Brasil!'
+    ,texto:' Atrações Musicais: Banda Tuatha de Danann, Banda Lyria, Banda Café Irlana, Banda Brazilian Pipers, Duo Magic, Loba Luna e Henrique, o Trovador.'
+    ,link:'https://fb.me/e/KiZEYSfA'
 }];
 
 
 function PickEventosLi(propriedades){
     return(
         <Pickeventos>
-                <h1>
+            <fieldset>
+                <legend>
                     {propriedades.data}
-                </h1>
+                </legend>
                 <h2>
                     {propriedades.titulo}
                 </h2>
@@ -92,6 +36,7 @@ function PickEventosLi(propriedades){
                     {propriedades.texto}
                 </p>
                 <Link to={propriedades.link}>Leia Mais</Link>
+            </fieldset>
         </Pickeventos>
     )
 }

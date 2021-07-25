@@ -106,10 +106,23 @@ export default function Login(){
                 <div>
                 <Form method ='_POST' onSubmit={function handleLogin(e){
                     e.preventDefault();
+                    let listaCliente = [];
                    //usuario
                        if(usuario.login === login && usuario.senha === senha){
                           // console.log(usuario.login + 'teste');
                           history.push('/admin')
+                       }else{
+                        const lista = localStorage.getItem('cliente')
+                        listaCliente = JSON.parse(lista)
+
+                        listaCliente.map(itemAtual =>{
+
+                            if(itemAtual.login === login && itemAtual.senha === senha){
+                                localStorage.setItem('sessao',itemAtual.nome)
+                                history.push('/')
+                                //return null
+                            } 
+                        })
                        }
 
                 }}>
