@@ -122,6 +122,7 @@ export default function Login(){
                                 history.push('/')
                                 //return null
                             } 
+                            return null
                         })
                        }
 
